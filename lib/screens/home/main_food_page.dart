@@ -1,8 +1,9 @@
 // create statefull widget for food page
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fooddelivery/home/food_page_body.dart';
+import 'package:fooddelivery/screens/home/food_page_body.dart';
 import 'package:fooddelivery/utils/colors.dart';
+import 'package:fooddelivery/utils/dimensions.dart';
 import 'package:fooddelivery/widgets/main_text.dart';
 import 'package:fooddelivery/widgets/main_title.dart';
 
@@ -21,8 +22,8 @@ class _MainFoodPageState extends State<MainFoodPage> {
           Container(
 
               child: Container(
-                margin: EdgeInsets.only(top: 45, bottom: 15),
-                padding: EdgeInsets.only(left: 20, right: 20),
+                margin: EdgeInsets.only(top: Dimensions.height45, bottom: Dimensions.height15),
+                padding: EdgeInsets.only(left: Dimensions.width45, right: Dimensions.width45),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -32,18 +33,18 @@ class _MainFoodPageState extends State<MainFoodPage> {
                           Row(
                             children:[
                               MainText(text: 'Guatire'),
-                              Icon(Icons.arrow_drop_down_rounded, color: AppColors.mainColor, size: 20,),
+                              Icon(Icons.arrow_drop_down_rounded, color: AppColors.mainColor, size: Dimensions.iconSize22),
                             ]
                           ),
                         ],
                       ),
                       Center(
                         child: Container(
-                          width: 45,
-                          height: 45,
-                          child: Icon(Icons.search, color: AppColors.iconColor),
+                          width: Dimensions.height45,
+                          height: Dimensions.height45,
+                          child: Icon(Icons.search, color: AppColors.iconColor, size: Dimensions.iconSize22),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
+                            borderRadius: BorderRadius.circular(Dimensions.radius15),
                             color: AppColors.mainColor,
                           ),
                         ),
@@ -52,7 +53,9 @@ class _MainFoodPageState extends State<MainFoodPage> {
                   )
               )
           ),
-          FoodPageBody(),
+          Expanded(child: SingleChildScrollView(
+            child: FoodPageBody(),
+          )),
         ]
       ),
     );

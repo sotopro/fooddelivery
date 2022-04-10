@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fooddelivery/utils/colors.dart';
+import 'package:fooddelivery/utils/dimensions.dart';
 import 'package:fooddelivery/widgets/main_text.dart';
 
 class MainIconText extends StatelessWidget {
@@ -9,7 +10,6 @@ class MainIconText extends StatelessWidget {
   Color textcolor;
   Color iconColor;
   double textSize;
-  double iconSize;
   double padding;
   double margin;
   FontWeight fontWeight;
@@ -25,7 +25,6 @@ class MainIconText extends StatelessWidget {
     this.overflow = TextOverflow.ellipsis,
     this.maxLines = 1,
     this.iconColor = Colors.black45,
-    this.iconSize = 20,
     this.padding = 0,
     this.margin = 0,
   }) : super(key: key);
@@ -36,7 +35,7 @@ class MainIconText extends StatelessWidget {
         Icon(
           icon,
           color: iconColor,
-          size: iconSize,
+          size: Dimensions.iconSize22,
         ),
         SizedBox(
           width: 10,

@@ -53,11 +53,90 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 size: const Size.square(10.0),
                 activeSize: const Size(20.0, 10.0),
                 activeShape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25.0)),
+                    borderRadius: BorderRadius.circular(Dimensions.radius20)),
                 activeColor: AppColors.mainColor,
                 color: AppColors.grey
             )
-        )
+        ),
+        SizedBox(height: Dimensions.height30),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width45),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              MainTitle(title: 'Popular'),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3),
+                child: MainTitle(title: '.', color: Colors.black26),
+              ),
+              SizedBox(width: Dimensions.width10),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: MainText(text: 'Food pairing')
+              )
+            ],
+          ),
+        ),
+        ListView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+          itemCount: 10,
+          itemBuilder: (context, position) {
+            return Container(
+              margin: EdgeInsets.only(left: Dimensions.width45, right: Dimensions.width45, bottom: Dimensions.height10),
+              child: Row(
+                children: [
+                  Container(
+                    width: Dimensions.listViewImageSize,
+                    height: Dimensions.listViewImageSize,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
+                      color: Colors.white,
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/food01.jpg'),
+                        fit: BoxFit.cover
+                      )
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                    height: Dimensions.listViewTextContainerSize,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(Dimensions.radius20),
+                        bottomRight: Radius.circular(Dimensions.radius20)
+                      ),
+                      color: Colors.white,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(left: Dimensions.width15, right: Dimensions.width15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          MainTitle(title: 'Nutritious fruit meal in China'),
+                          SizedBox(height: Dimensions.height10),
+                          MainText(text: 'With cinese characteristics the fruit is a healthy food, and it is a good source of protein, vitamin C, and other nutrients.'),
+                          SizedBox(height: Dimensions.height15), 
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              MainIconText(icon: Icons.circle_sharp, text: 'Normal', iconColor: Colors.amber.shade400),
+                              MainIconText(icon: Icons.location_on_sharp, text: '1.5 km', iconColor: AppColors.secondaryColor),
+                              MainIconText(icon: Icons.access_time_sharp, text: '30 min', iconColor: Colors.red.shade400),
+                            ]
+                        ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  ),
+                  ],
+              )
+            );
+        }
+        ),
       ],
     );
   }
@@ -85,9 +164,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
           children: [
             Container(
               height: Dimensions.pageViewContainer,
-              margin: EdgeInsets.only(left: Dimensions.height20, right: Dimensions.height20),
+              margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: position.isEven ? AppColors.mainColor : AppColors.secondaryColor,
                 image: DecorationImage(
                   image: AssetImage('assets/images/food01.jpg'),
@@ -99,9 +178,9 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               alignment: Alignment.bottomCenter,
               child: Container(
                   height: Dimensions.pageViewTextContainer,
-                  margin: EdgeInsets.only(left: 25, right: 25, bottom: Dimensions.height15),
+                  margin: EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20, bottom: Dimensions.height15),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
                     color: AppColors.backgroundColorSecondary,
                     boxShadow: [
                       BoxShadow(
